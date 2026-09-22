@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-size: 1.2em;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contents">
+        <ul>
+            <li> 
+                <label for="oPrice1">구매 가격 1:</label>
+                <input type="number" id="oPrice1">원
+            </li>
+            <li> 
+                <label for="oPrice2">구매 가격 2:</label>
+                <input type="number" id="oPrice2">원
+            </li>
+            <li> 
+                <label for="oPrice3">구매 가격 3:</label>
+                <input type="number" id="oPrice3">원
+            </li>
+            <li>
+                <lavel for="rate">적립율 </lavel>
+                <input type="number" id="rate">%
+            </li>
+            <li>
+                <button onclick="showPrice()">버튼 클릭하기</button>
+            </li>
+        </ul>
+        <div id="showResult"></div>
+    </div>
+
+    <!--<h1>자바스크립트 3주차 수업입니다.</h1>-->
+
+    <script>
+        
+        // var name = prompt("태어난 연도를 입력하세요");
+        // var age = 2026 - name + 1;
+        // document.write("현재 나이는 " + age + "세입니다.");
+
+        function showPrice() {
+            var price1 = Number(document.querySelector("#oPrice1").value);
+            var price2 = Number(document.querySelector("#oPrice2").value);
+            var price3 = Number(document.querySelector("#oPrice3").value);
+            var originPrice = price1 + price2 + price3;
+            var rate = Number(document.querySelector("#rate").value);
+            var earnedPoints = 0;
+
+            // 1. savePrice -> savedPrice 로 통일
+            var resultPrice = originPrice  * (rate / 100);
+            if (resultPrice >= 50000) {
+                grade = "VIP";
+                rate = 0.03;
+            }
+            else if (resultPrice >= 30000) {
+                grade = "Gold";
+                rate = 0.02;
+            }
+            else  {
+                grade = "Silver";
+                rate = 0.01;
+            }
+
+            // 2. origin-Price -> originPrice 로 수정
+            document.querySelector("#showResult").innerHTML = 
+                "당신의 구매금액은 " + originPrice + "원이고 " + grade + "고객으로,  적립율은 " + rate + "%이며 " + 
+                "구매하신 금액의 적립금은 " + resultPrice + "입니다.";
+        }
+    </script>
+</body>
+</html>
