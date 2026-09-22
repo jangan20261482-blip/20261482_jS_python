@@ -1,0 +1,10 @@
+body {
+    text-align:center;
+}
+#heading {
+    color:"blue";
+}
+#text {
+    color:"red";
+    font-size:15px;
+}
