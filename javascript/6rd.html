@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>지도</title>
+</head>
+
+<body>
+
+<button class="mytestbtn"
+    onclick="location.href='https://map.naver.com/p?c=15.00,0,0,0,dh'">
+    지도 열기
+</button>
+
+<p id="test"></p>
+
+<p id="demo"></p>
+
+<script>
+
+const cars = ["무화과", "수박", "포도", "사과", "배", "오렌지"];
+
+let text = "";
+
+for (let i = 0; i < cars.length; i++) {
+    text += cars[i] + "<br>";
+}
+
+document.getElementById("test").innerHTML = text;
+
+
+let numberText = "";
+
+for (let i = 0; i <= 100; i += 5) {
+    numberText += "The number is " + i + "<br>";
+}
+
+document.getElementById("demo").innerHTML = numberText;
+
+
+let reverseText = "";
+
+for (let i = 10; i >= 1; i--) {
+    if (i === 3) {
+        continue;
+    }
+
+    reverseText += i + "<br>";
+}
+
+document.getElementById("demo").innerHTML += reverseText;
+
+</script>
+
+</body>
+</html>
